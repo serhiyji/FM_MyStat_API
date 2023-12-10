@@ -1,0 +1,26 @@
+﻿using FM_MyStat_API.Core.DTOs.LessonsDTO.LessonMark;
+using FM_MyStat_API.Core.DTOs.LessonsDTO.Lessons;
+using FM_MyStat_API.Core.DTOs.UsersDTO.Student;
+using FM_MyStat_API.Core.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FM_MyStat_API.Core.Interfaces
+{
+    public interface ILessonMarkService
+    {
+        Task<List<LessonMarkDTO>> GetAll();
+        Task<LessonMarkDTO?> Get(int id);
+        Task<ServiceResponse> GetById(LessonMarkDTO model);
+        Task<LessonMarkDTO> GetById(int Id);
+        Task Create(CreateLessonMarkDTO model);
+        Task Update(EditLessonMarkDTO model);
+        Task Delete(int id);
+        Task<List<StudentDTO>> GetAllStudents();
+        Task SetMarksStudents(List<StudentMarkDTO> studentMarks);
+        Task<List<StudentMarkDTO>> GetAllStudentsByLesson(int lessonId);
+    }
+}

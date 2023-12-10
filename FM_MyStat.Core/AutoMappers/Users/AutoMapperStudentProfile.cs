@@ -1,0 +1,27 @@
+﻿using AutoMapper;
+using FM_MyStat_API.Core.DTOs.UsersDTO.Student;
+using FM_MyStat_API.Core.DTOs.UsersDTO.User;
+using FM_MyStat_API.Core.Entities.Users;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FM_MyStat_API.Core.AutoMappers.Student
+{
+    public class AutoMapperStudentProfile : Profile
+    {
+        public AutoMapperStudentProfile()
+        {
+            CreateMap<CreateStudentDTO, Entities.Users.Student>();
+            CreateMap<StudentDTO, AppUser>().ReverseMap();
+            CreateMap<EditStudentDTO, AppUser>().ReverseMap();
+            CreateMap<EditStudentDTO, EditUserDTO>().ReverseMap();
+            CreateMap<AppUser, EditStudentDTO>().ReverseMap();
+            CreateMap<Entities.Users.Student, StudentDTO>().ReverseMap();
+            CreateMap<StudentMarkDTO, Entities.Users.Student>().ReverseMap();
+            //CreateMap<CreateStudentDTO, AppUser>().ForMember(dst => dst.UserName, act => act.MapFrom(src => src.Email));
+        }
+    }
+}

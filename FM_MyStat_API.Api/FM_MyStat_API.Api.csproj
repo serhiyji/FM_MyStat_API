@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FM_MyStat.Core\FM_MyStat.Core.csproj" />
+    <ProjectReference Include="..\FM_MyStat.Core\FM_MyStat_API.Core.csproj" />
     <ProjectReference Include="..\FM_MyStat_API.Infrastructure\FM_MyStat_API.Infrastructure.csproj" />
   </ItemGroup>
 
