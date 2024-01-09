@@ -5,6 +5,9 @@ using FM_MyStat_API.Infrastructure;
 using FM_MyStat_API.Infrastructure.Initializers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using System;
+using FM_MyStat_API.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +40,9 @@ builder.Services.AddAuthentication(options =>
 // Create connection string
 string connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 // Database context
-builder.Services.AddDbContext(connStr);
+builder.Services.AddDbContext<AppDBContext>(
+    o => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
 
 // Add core services
 builder.Services.AddCoreServices();
